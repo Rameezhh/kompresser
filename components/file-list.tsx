@@ -113,7 +113,10 @@ export function FileList({ files, onRemoveFile, isCompressing }: FileListProps) 
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-primary" />
                   <Badge className="bg-primary/10 text-primary border-primary/20 hover:bg-primary/10 text-xs">
-                    {"-"}{getSavingsPercent(file.originalSize, file.compressedSize)}%
+                    {(() => {
+                      const pct = getSavingsPercent(file.originalSize, file.compressedSize);
+                      return pct > 0 ? `-${pct}%` : `${pct}%`;
+                    })()}
                   </Badge>
                 </div>
               )}

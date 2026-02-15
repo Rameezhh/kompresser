@@ -141,6 +141,16 @@ export async function compressImage(file: File): Promise<CompressResult> {
   const ext = getOutputExtension(finalMime);
   const outputName = replaceExtension(file.name, ext);
 
+  // Never return a larger file: if we couldn't compress, use original
+  if (blob.size > file.size) {
+    return {
+      blob: file,
+      originalSize: file.size,
+      compressedSize: file.size,
+      outputName: file.name,
+    };
+  }
+
   return {
     blob,
     originalSize: file.size,

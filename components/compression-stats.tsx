@@ -14,8 +14,8 @@ export function CompressionStats({
   totalCompressed,
   fileCount,
 }: CompressionStatsProps) {
-  const savings = totalOriginal - totalCompressed;
-  const percent = getSavingsPercent(totalOriginal, totalCompressed);
+  const savings = Math.max(0, totalOriginal - totalCompressed);
+  const percent = Math.max(0, getSavingsPercent(totalOriginal, totalCompressed));
 
   return (
     <div className="rounded-xl border border-primary/20 bg-primary/5 p-6">

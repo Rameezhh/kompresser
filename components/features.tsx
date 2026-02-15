@@ -37,7 +37,7 @@ const features = [
     icon: Server,
     title: "No Limits",
     description:
-      "Compress up to 50 images at once, with each file up to 10MB. Completely free with no signup required.",
+      "Compress up to 50 images at once, with each image up to 50MB. Completely free with no signup required.",
   },
 ];
 

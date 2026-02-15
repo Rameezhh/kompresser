@@ -7,7 +7,7 @@
 ## Features
 
 - **100% client-side** — Images never leave your device. No server uploads, no storage.
-- **Bulk compression** — Up to 50 images at once (max 10 MB per file).
+- **Bulk compression** — Up to 50 images at once (max 50 MB per image).
 - **Multiple formats** — Input: JPEG, PNG, WebP, AVIF, TIFF. Output: JPEG, PNG, or WebP with optimized quality.
 - **ZIP download** — One click to download all compressed images as a single ZIP file.
 - **Live progress** — Per-file status and overall progress bar.
@@ -18,7 +18,7 @@
 
 ## How It Works
 
-1. **Add images** — Drag and drop or click to select. Accepted: JPEG, PNG, WebP, AVIF, TIFF (max 10 MB each, up to 50 files).
+1. **Add images** — Drag and drop or click to select. Accepted: JPEG, PNG, WebP, AVIF, TIFF (max 50 MB per image, up to 50 files).
 2. **Review list** — See thumbnails, filenames, and original sizes. Remove any file before compressing.
 3. **Compress** — Click **Compress X Images**. Each image is processed in the browser using the Canvas API: decoded, optionally resized if very large, then re-encoded at lower quality to reduce file size.
 4. **Download** — When done, see total savings and click **Download ZIP** (or **Download Image** for a single file). ZIP is built in the browser with JSZip.
@@ -115,7 +115,7 @@ npm run dev
 
 ## Limits and Validation
 
-- **Per file:** 10 MB max; only image types above (JPEG, PNG, WebP, AVIF, TIFF).
+- **Per image:** 50 MB max; only image types above (JPEG, PNG, WebP, AVIF, TIFF).
 - **Total:** Up to 50 files per batch.
 - Oversized or invalid files are skipped; the UI shows toasts for skipped files.
 

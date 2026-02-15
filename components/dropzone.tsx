@@ -5,7 +5,7 @@ import { Upload, ImageIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
-const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50 MB per image
 
 const ACCEPTED_TYPES = [
   "image/jpeg",
@@ -56,7 +56,7 @@ export function Dropzone({ onFilesAdded, disabled }: DropzoneProps) {
         validFiles.push(file);
       }
       if (oversized.length > 0) {
-        toast.error(`${oversized.length} file(s) skipped (over 10 MB): ${oversized.join(", ")}`);
+        toast.error(`${oversized.length} file(s) skipped (over 50 MB): ${oversized.join(", ")}`);
       }
       if (validFiles.length > 0) {
         onFilesAdded(validFiles);
@@ -79,7 +79,7 @@ export function Dropzone({ onFilesAdded, disabled }: DropzoneProps) {
         validFiles.push(file);
       }
       if (oversized.length > 0) {
-        toast.error(`${oversized.length} file(s) skipped (over 10 MB): ${oversized.join(", ")}`);
+        toast.error(`${oversized.length} file(s) skipped (over 50 MB): ${oversized.join(", ")}`);
       }
       if (validFiles.length > 0) {
         onFilesAdded(validFiles);
@@ -136,7 +136,7 @@ export function Dropzone({ onFilesAdded, disabled }: DropzoneProps) {
         JPEG, PNG, WebP, AVIF, TIFF
       </p>
       <div className="flex items-center gap-4 text-xs text-muted-foreground/70">
-        <span>Max 10MB per file</span>
+        <span>Max 50MB per image</span>
         <span className="h-1 w-1 rounded-full bg-muted-foreground/30" />
         <span>Up to 50 files</span>
       </div>
